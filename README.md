@@ -1,70 +1,88 @@
 # Piyush Raj Singh
 
-**AI Systems Engineer · Distributed Systems · Remote**
+**AI Systems Engineer — agent runtimes, backend systems, and production TypeScript & Python.**
 
-Building production-grade AI infrastructure, agent runtimes, and full-stack SaaS.
-24 shipped products. 1 goal: engineer systems that scale.
-
----
-
-## 🚀 Featured: CollabForge
-
-**[github.com/Warriorlegacy/collab-forge](https://github.com/Warriorlegacy/collab-forge)**
-
-Real-time collaborative AI agent IDE with DAG-based concurrent execution,
-event-sourced state in Postgres, and sandboxed tool use.
-
-- **DAGExecutor**: topological-sort concurrent execution with per-agent timeouts,
-  cancellation propagation, and automatic retries
-- **Event Sourcing**: append-only `run_events` in Postgres + Supabase Realtime for
-  live streaming without polling
-- **Tool Runtime**: `code_interpreter` in Web Worker sandbox, `web_search` via
-  DuckDuckGo, `http_request` — all with structured telemetry
-- **Cloudflare Worker**: Hono-based orchestrator with multi-provider LLM fallback
-  (LovableAI, Groq, NVIDIA)
-
-**Stack**: TypeScript · React 19 · Cloudflare Workers · Supabase · Y.js · Liveblocks
+I build AI systems end to end: the agent loop, the API, the database, the deployment, and the failure handling. Not demos — systems with tests, CI, and a documented design.
 
 ---
 
-## 📊 Technical Depth
+## What I work on
 
-| Domain | Signal |
-|--------|--------|
-| Distributed Systems | Event sourcing, Redis pub/sub, causal ordering, DAG execution |
-| AI Infrastructure | Multi-provider gateway, BYOK AES-256-GCM, tool-use loops, function calling |
-| Real-time | Y.js CRDT, WebSocket streaming, Supabase Realtime, live presence |
-| Full-Stack | React 19, TanStack Start, Supabase, Stripe, Cloudflare Workers |
-| Systems Design | ADRs, performance benchmarks, P99 latency targets, idempotency |
-
----
-
-## 🏗️ Selected Repositories
-
-| Repo | Description |
-|------|-------------|
-| **[collab-forge](https://github.com/Warriorlegacy/collab-forge)** | Real-time collaborative AI agent IDE with DAG orchestration |
-| **[Signhify_Studio](https://github.com/Warriorlegacy/Signhify_Studio)** | 6-agent AI product studio — durable orchestrator + BYOK + Stripe |
-| **[Signhify](https://github.com/Warriorlegacy/Signhify)** | AI engineering studio platform (24 live SaaS products) |
+| Area | What that means concretely |
+|---|---|
+| **Agent runtimes** | Execution loops, tool-call permission gating with audit logs, mode management |
+| **Backend systems** | Domain-tested APIs on PostgreSQL (auth, contacts, workflows, inbox), containerised deployment |
+| **Automation pipelines** | Scheduled multi-stage pipelines with orchestration, fact-checking, and quality gates |
+| **Developer tooling** | CLI products with typed configuration, release automation, and cross-platform installers |
+| **Applied AI** | Multi-provider LLM abstraction, embeddings and memory subsystems, prompt libraries |
 
 ---
 
-## 📝 Writing
+## Selected work
 
-- *How I Built a Durable Agent Orchestrator* — event-sourced state machines for AI pipelines
-- *BYOK Encryption in a Multi-Provider AI Gateway* — zero-knowledge key management at scale
-- *DAG Execution for Concurrent AI Agents* — topological sort, cancellation, and retry patterns
+### 🔧 Signhify CLI — agent developer tool
+A Turborepo monorepo CLI with an agent execution loop, a tool permission engine, and configurable operating modes. Typed config validated against JSON Schema, cross-platform installers, and a five-stage CI pipeline (lint · test · typecheck · release · CI).
+`TypeScript` · `Turborepo` · `Vitest` · `GitHub Actions`
+
+→ [`Signhify_CLI`](https://github.com/Warriorlegacy/Signhify_CLI)
+
+### 🧩 CRM — multi-tenant backend platform
+Backend platform covering authentication, contacts, follow-up workflows, and inbox handling, backed by Prisma/PostgreSQL with Docker and nginx deployment. Domain logic is covered by unit tests across all four areas.
+`TypeScript` · `PostgreSQL` · `Prisma` · `Docker`
+
+→ [`CRM`](https://github.com/Warriorlegacy/CRM)
+
+### 🎨 DXFVec — image vectorisation & DXF conversion
+A focused Python tool that vectorises raster images and converts them to DXF with no external API dependency — emitting native ARC/CIRCLE entities via Taubin/Kasa least-squares circle fitting. Two production bugs found by end-to-end testing and fixed with regression tests; 158-test suite, reproducible benchmark harness, CI green, ships containerised.
+`Python` · `OpenCV` · `ezdxf` · `Docker` · `pytest`
+
+→ [`dxfvec`](https://github.com/Warriorlegacy/dxfvec)
+
+### 🎬 Autogram — autonomous content pipeline
+A Python content pipeline driven by nine scheduled workflows: source fetching → topic scoring → carousel architecture → fact-checking → quality gate → deterministic Playwright rendering → CDN staging → publishing, with an operational dashboard API.
+`Python` · `Playwright` · `GitHub Actions`
+
+→ [`Autogram`](https://github.com/Warriorlegacy/Autogram)
+
+### 🛠 Signhify Studio — AI product platform
+A platform for shipping AI products, built on a relational schema with migrations, a secrets abstraction layer, Playwright smoke tests, and a unit suite.
+`TypeScript` · `Supabase` · `Playwright`
+
+→ [`Signhify_Studio`](https://github.com/Warriorlegacy/Signhify_Studio)
 
 ---
 
-## 📫 Contact
+## How I build
 
-- **Portfolio**: [signhify.dpdns.org](https://signhify.dpdns.org)
-- **Email**: piyushrajsingh092@gmail.com
-- **WhatsApp**: +91 62024 42690
-- **LinkedIn**: [linkedin.com/in/piyushraj-singh](https://linkedin.com/in/piyushraj-singh)
+- **Tests before claims.** Domain logic is covered by tests, and every repository states what is *not* finished.
+- **CI on every project.** Lint → typecheck → test → build.
+- **Diagrams in the repo.** Architecture is Mermaid in version control, not a screenshot.
+- **Documented trade-offs.** Design decisions are recorded as ADRs, including the ones I'd revisit.
+- **Honest scope.** A Limitations section is not optional.
 
 ---
 
-*Registered MSME · Govt. of India (UDYAM)*
-*Open to remote full-time roles (45 LPA+)*
+## Stack
+
+**Languages** — TypeScript · Python · SQL
+**Frontend** — React · Next.js
+**Backend** — Node.js · Prisma · PostgreSQL · Supabase
+**AI** — LLM provider APIs · embeddings · vector retrieval · agent orchestration
+**Infra** — Docker · GitHub Actions · Vercel · Render · Railway
+**Quality** — Vitest · pytest · Playwright
+
+---
+
+## Currently
+
+Building agent and RAG systems with a focus on evaluation and observability — measuring retrieval quality, tracking token cost, and instrumenting agent traces rather than guessing.
+
+Open to **remote AI engineering / backend engineering** roles.
+
+---
+
+📫 **Contact** — [LinkedIn](https://www.linkedin.com/in/piyushraj-singh) · [GitHub](https://github.com/Warriorlegacy)
+
+---
+
+<sub>Every technical claim above maps to a file, a test, or a workflow in the linked repository.</sub>
